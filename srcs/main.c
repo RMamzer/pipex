@@ -6,17 +6,25 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:21 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/15 15:00:49 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/15 16:28:29 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
 
 void error_exit(char *msg)
 {
 ft_putendl_fd(msg, STDERR_FILENO);
 exit (EXIT_FAILURE);
 }
+
+check_access(char *file, t_data *data)
+{
+	if (access(file, F_OK | R_OK) == -1)
+		error_exit ("Access fail ");
+}
+
 
 
  void child_process_cmd1(t_data *data)
@@ -27,17 +35,33 @@ exit (EXIT_FAILURE);
 	pid_cmd1 = fork();
 	if (pid_cmd1 == -1)
 	{
-		close(data->pipefd[0]);
-		close(data->pipefd[1]);
+		// close fd's
+		close(data->pipefd[READ_END]);
+		close(data->pipefd[WRITE_END]);
 		error_exit("Fork error for cmd1");
 	}
 	if(pid_cmd1 == 0)
 	{
+		check_access(data->argv[1], data);
 		infile_fd = open(data->argv[1], O_RDONLY);
 		if (infile_fd < 0)
+		// close fd's
 			error_exit("Error opening infile");
+		if (dup2(infile_fd, STDIN_FILENO) == -1)
+		//close fd's
+			error_exit(" 1st dup2 for cmd1 broke");
+		close(infile_fd);
+		if (dup2(data->pipefd[WRITE_END], STDOUT_FILENO) == -1)
+		//close fd's
+			error_exit("2nd dup2 for cmd1 broke");
+		close(data->pipefd[READ_END]);
+		close(data->pipefd[WRITE_END]);
+		data->cmd_args = ft_split(data->argv[2], " ");
+		if (!data->cmd_args)
+			// split failed
+			error_exit("split returned NULL");
+		
 	}
-
  }
 
 
