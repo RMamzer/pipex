@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:57 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/16 12:43:37 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/16 13:06:24 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // # include <string.h> // For strerror (though perror is often enough)
 
 # define READ_END 0
-# define WRITE_END 0
+# define WRITE_END 1
 
 typedef struct s_data
 {

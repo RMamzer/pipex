@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:21 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/16 12:47:50 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/16 13:13:01 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void error_exit(char *msg, t_data *data)
 	*/
 	if(data)
 	{
+		ft_printf("Im here :)");
 		if (data->cmd_args)
 			free_arrays(data->cmd_args);
 		if(data->cmd_path)
@@ -121,8 +122,8 @@ void	find_path(t_data *data, char **envp)
 	{
 		if (ft_strncmp(*envp, "PATH=", 5) == 0)
 			{
-				data->envp = ft_split(*envp, ':');
-				if (!data->envp)
+				data->cmd_path = ft_split(*envp, ':');
+				if (!data->cmd_path)
 					error_exit("envp split broke", data);
 				return;
 			}
@@ -140,7 +141,7 @@ int main (int argc, char **argv, char **envp)
 
 
 
-	data = calloc(1, sizeof(data));
+	data = calloc(1, sizeof(t_data));
 	if (!data)
 		error_exit("Calloc broke", data);
 	data->argv = argv;
@@ -149,7 +150,8 @@ int main (int argc, char **argv, char **envp)
 		error_exit("./pipex: pipe broke", data);
 	// print_envp(envp);
 	// print_envp(data->envp);
-	 child_process_cmd1(data);
+	 child_process_cmd1(data); //need final cleaning after running forks ( to not miss a leak)
+	error_exit("SUCCESS", data);
 	return (0);
 }
 
