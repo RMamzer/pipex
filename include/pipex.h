@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:57 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/15 16:27:30 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/16 12:43:37 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@
 typedef struct s_data
 {
 	int		pipefd[2];
-	char	**argv;
-	char	**envp;
+	char	**argv; // i guess i need it?
+	char	**envp; // do i need it?
 	char	**cmd_args;
-	char 	* cmd_path;
+	char 	**cmd_path;
 }	t_data;
 
 #endif

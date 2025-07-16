@@ -1,6 +1,6 @@
 NAME = libft.a
-
-CFLAGS = -Wall -Wextra -Werror
+#CHECK FLAGS
+CFLAGS = -Wall -Wextra -Werror -g
 
 CC = cc
 
