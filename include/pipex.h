@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:57 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/16 13:06:24 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/17 16:09:48 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_data
 	char	**argv; // i guess i need it?
 	char	**envp; // do i need it?
 	char	**cmd_args;
-	char 	**cmd_path;
+	char	**cmd_path;
+	int		status;
 }	t_data;
 
 #endif
