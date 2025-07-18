@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:57 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/17 16:09:48 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/18 15:51:52 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <sys/wait.h> // For wait, waitpid
 # include <fcntl.h> // For open, O_RDONLY, O_WRONLY, O_CREAT, O_TRUNC
 # include <stdlib.h> // For exit, malloc, free
- # include <stdio.h> // For perror
+# include <stdio.h> // For perror
+# include <stdbool.h> // boolean
 // # include <string.h> // For strerror (though perror is often enough)
 
 # define READ_END 0
@@ -30,7 +31,7 @@ typedef struct s_data
 {
 	int		pipefd[2];
 	char	**argv; // i guess i need it?
-	char	**envp; // do i need it?
+	char	**envp; // need for execve
 	char	**cmd_args;
 	char	**cmd_path;
 	int		status;
