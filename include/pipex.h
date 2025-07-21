@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:57 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/18 15:51:52 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/21 12:51:17 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,16 @@
 
 # define READ_END 0
 # define WRITE_END 1
+# define NO_OPENED_FILE -1
+
+# define PARENT false
+# define CHILD true
 
 typedef struct s_data
 {
 	int		pipefd[2];
-	char	**argv; // i guess i need it?
-	char	**envp; // need for execve
+	char	**argv;
+	char	**envp;
 	char	**cmd_args;
 	char	**cmd_path;
 	int		status;
