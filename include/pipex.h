@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:57 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/21 12:51:17 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/22 15:59:26 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 # include <fcntl.h> // For open, O_RDONLY, O_WRONLY, O_CREAT, O_TRUNC
 # include <stdlib.h> // For exit, malloc, free
 # include <stdio.h> // For perror
-# include <stdbool.h> // boolean
-// # include <string.h> // For strerror (though perror is often enough)
+# include <stdbool.h>
+//# include <string.h> // For strerror (though perror is often enough)
 
 # define READ_END 0
 # define WRITE_END 1
 # define NO_OPENED_FILE -1
 
-# define PARENT false
-# define CHILD true
+# define PATH_IN_ARGS true
+# define NO_PATH_IN_ARGS false
 
 typedef struct s_data
 {
@@ -38,7 +38,7 @@ typedef struct s_data
 	char	**envp;
 	char	**cmd_args;
 	char	**cmd_path;
-	int		status;
+	int		exit_status;
 }	t_data;
 
 #endif
