@@ -2,7 +2,7 @@ NAME = pipex
 
 CC = cc
 #CHECK NECESSARY FLAGS LATER
-C_FLAGS = -g #-Wall -Wextra -Werror
+C_FLAGS = -g -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a

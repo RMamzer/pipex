@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 18:09:57 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/22 15:59:26 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/23 11:47:45 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@
 # include <stdlib.h> // For exit, malloc, free
 # include <stdio.h> // For perror
 # include <stdbool.h>
+# include <errno.h>
 //# include <string.h> // For strerror (though perror is often enough)
 
 # define READ_END 0
 # define WRITE_END 1
 # define NO_OPENED_FILE -1
+
+# define CMD_NOT_FOUND 127
+# define CMD_NOT_EXEC 126
 
 # define PATH_IN_ARGS true
 # define NO_PATH_IN_ARGS false
