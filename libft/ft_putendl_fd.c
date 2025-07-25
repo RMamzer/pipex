@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 12:27:17 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/04/29 14:12:01 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/24 17:22:23 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 // descriptor followed by a newline.
 void	ft_putendl_fd(char *s, int fd)
 {
-	while (*s)
+	if (*s)
 	{
-		write(fd, s, 1);
-		s++;
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
 	}
-	write(fd, "\n", 1);
 }

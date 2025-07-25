@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 11:32:44 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/04/29 14:08:35 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/25 13:22:52 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 // descriptor.
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
+	int	i;
+
+	if (*s)
 	{
-		write(fd, s, 1);
-		s++;
+		i = ft_strlen(s);
+		write (fd, s, i);
 	}
 }

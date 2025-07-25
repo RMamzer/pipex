@@ -6,7 +6,7 @@
 /*   By: rmamzer <rmamzer@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:10:21 by rmamzer           #+#    #+#             */
-/*   Updated: 2025/07/05 18:59:49 by rmamzer          ###   ########.fr       */
+/*   Updated: 2025/07/24 16:40:51 by rmamzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,9 @@ int	ftpf_putstr(char *str)
 int	ftpf_putbase(unsigned long num, unsigned int base, char *str)
 {
 	int	total;
-	int	index;
 	int	written;
 
 	total = 0;
-	index = 0;
 	written = 0;
 	if (num > base - 1)
 		total = ftpf_putbase(num / base, base, str);

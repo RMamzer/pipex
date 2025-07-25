@@ -1,8 +1,8 @@
 NAME = pipex
 
 CC = cc
-#CHECK NECESSARY FLAGS LATER
-C_FLAGS = -g -Wall -Wextra -Werror
+
+C_FLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -16,11 +16,10 @@ BONUS_SRCS_DIR = bncs/
 
 HEADERS = -I ./include  -I $(LIBFT_DIR)
 
-SRCS = main.c
+SRCS = main.c cmd_execution.c error_and_free.c utils.c
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 .SECONDARY: ${OBJS}
-
 
 all: $(NAME)
 
